@@ -1,8 +1,8 @@
 import {  Text, View, Image, StyleSheet } from "react-native";
-import { Character } from "../models/character"; 
+import { ICharacter } from "../models/character"; 
 
 
-interface Props extends Character {}
+interface Props extends ICharacter {}
 
 const Character = (props: Props) => {
 
@@ -21,6 +21,7 @@ const Character = (props: Props) => {
                 <Text>Specie: {species}</Text>
                 <Text>Name: {name}</Text>
                 <Text>Gender: {gender}</Text>
+                <Text>Image: {image}</Text>
             </View>
         </View>
     )

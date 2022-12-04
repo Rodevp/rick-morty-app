@@ -1,6 +1,6 @@
 import { Location } from "./location";
 
-export interface Character {
+export interface ICharacter {
     id:       number;
     name:     string;
     status:   string;
