@@ -1,16 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 import {
     View,
-    FlatList,
     ListRenderItemInfo,
     Dimensions,
     Animated,
     SafeAreaView,
     StyleSheet,
-    Image } from 'react-native'
+    } from 'react-native'
 import { ICharacter } from '../models/character'
 import { getCharacterView } from '../views/getCharacterView'
 import CharacterItem from './CharacterItem'
+import { LinearGradient } from "expo-linear-gradient"
 
 interface Props {}
 interface PropsBack {
@@ -24,7 +24,6 @@ const WIDTH_CONTENT = WIDTH * 0.7
 const SPACE = 10
 const SPACE_CONTENT = (WIDTH - WIDTH_CONTENT) / 2
 const HEIGHT_BACKDROOP = HEIGHT * 0.5
-
 
 const BackDroop = ({scrollX, images}: PropsBack ) => {
 
@@ -64,11 +63,18 @@ const BackDroop = ({scrollX, images}: PropsBack ) => {
           )
         })
       }
+      <LinearGradient
+        colors={["transparent", "white"]}
+        style={{
+          height: HEIGHT_BACKDROOP,
+          width: WIDTH,
+          position: "absolute",
+          top: 0
+        }}
+      />
     </View>
   )
 }
-
-
 
 const ListCharacters = (props: Props) => {
 
