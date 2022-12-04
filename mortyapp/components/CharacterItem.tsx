@@ -1,19 +1,28 @@
-import {  Text, View, Image, StyleSheet } from "react-native";
+import {  Text, View, Image, StyleSheet, Animated } from "react-native";
 import { ICharacter } from "../models/character"; 
 
 
 interface Props extends ICharacter {
     heigth: number,
-    space: number
+    space: number,
+    translateY: Animated.AnimatedInterpolation<string | number>
 }
 
 const Character = (props: Props) => {
 
-    const { name, species, gender, image, heigth, space } = props;
+    const { name, species, gender, image, heigth, space, translateY } = props;
 
     return (
-        <View
-            style={{...styles.card, marginHorizontal: space, padding: space, height: heigth}}
+        <Animated.View
+            style={{
+                ...styles.card,
+                marginHorizontal:space,
+                padding: space,
+                height: heigth,
+                transform: [{
+                    translateY
+                }]
+            }}
         >
             <View>
                 <Image
@@ -28,7 +37,7 @@ const Character = (props: Props) => {
                 <Text>Name: {name}</Text>
                 <Text>Gender: {gender}</Text>
             </View>
-        </View>
+        </Animated.View>
     )
 
 }
@@ -41,9 +50,8 @@ const styles = StyleSheet.create({
         borderRadius: 24
     },
     card: {
-        width: 200,
+        width: 250,
         borderRadius: 24,
-        margin: 0,
         marginBottom: 10,
         backgroundColor: "green",
         alignContent: "center"
